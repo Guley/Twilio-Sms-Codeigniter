@@ -6,6 +6,11 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->library('twilio');
+		$mobile_number = '919876543210';
+		$message = "Welcome to Twilio.";
+		$result = $this->sendSMS($mobile_number, $message);
+		var_dump( $result);
+		exit;
 
 
 	}
