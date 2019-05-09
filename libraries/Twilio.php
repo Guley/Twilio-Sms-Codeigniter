@@ -75,32 +75,11 @@ class Twilio {
         }
     }
 
-    /* Success Response from loopup service.
-        stdClass Object
-        (
-            [caller_name] => 
-            [country_code] => IN
-            [phone_number] => +919814569120
-            [national_format] => 098145 69120
-            [carrier] => 
-            [add_ons] => 
-            [url] => https://lookups.twilio.com/v1/PhoneNumbers/+919814569120
-        )
-
-        Error Response from loopup service.
-        stdClass Object
-        (
-            [code] => 20404
-            [message] => The requested resource /PhoneNumbers/912343 was not found
-            [more_info] => https://www.twilio.com/docs/errors/20404
-            [status] => 404
-        )
-    */
+    
     public function lookups($mobile_number){
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            //?Type=carrier&Type=caller-name
             CURLOPT_URL => 'https://lookups.twilio.com/v1/PhoneNumbers/'.$mobile_number,
             CURLOPT_RETURNTRANSFER => TRUE,
             CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
